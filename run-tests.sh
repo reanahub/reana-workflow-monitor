@@ -1,3 +1,5 @@
+#!/bin/sh
+#
 # This file is part of REANA.
 # Copyright (C) 2017 CERN.
 #
@@ -18,13 +20,9 @@
 # granted to it by virtue of its status as an Intergovernmental Organization or
 # submit itself to any jurisdiction.
 
-FROM cern/cc7-base
-RUN yum install -y gcc gcc-c++ graphviz-devel ImageMagick python-devel libffi-devel openssl openssl-devel unzip nano autoconf automake libtool
-RUN curl https://bootstrap.pypa.io/get-pip.py | python -
-RUN echo what 6
-RUN pip install celery==3.1.17
-RUN pip install https://github.com/diana-hep/packtivity/archive/master.zip
-RUN pip install https://github.com/diana-hep/yadage/archive/master.zip
-RUN pip install zmq python-socketio gevent flask gevent-websocket
-ADD . /code
-WORKDIR /code
+pydocstyle reana_workflow_monitor && \
+isort -rc -c -df **/*.py && \
+check-manifest --ignore ".travis-*" && \
+sphinx-build -qnNW docs docs/_build/html && \
+python setup.py test && \
+sphinx-build -qnNW -b doctest docs docs/_build/doctest

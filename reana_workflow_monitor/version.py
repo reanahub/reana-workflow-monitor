@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#
 # This file is part of REANA.
 # Copyright (C) 2017 CERN.
 #
@@ -18,13 +20,12 @@
 # granted to it by virtue of its status as an Intergovernmental Organization or
 # submit itself to any jurisdiction.
 
-FROM cern/cc7-base
-RUN yum install -y gcc gcc-c++ graphviz-devel ImageMagick python-devel libffi-devel openssl openssl-devel unzip nano autoconf automake libtool
-RUN curl https://bootstrap.pypa.io/get-pip.py | python -
-RUN echo what 6
-RUN pip install celery==3.1.17
-RUN pip install https://github.com/diana-hep/packtivity/archive/master.zip
-RUN pip install https://github.com/diana-hep/yadage/archive/master.zip
-RUN pip install zmq python-socketio gevent flask gevent-websocket
-ADD . /code
-WORKDIR /code
+"""Version information for REANA-Workflow-Monitor.
+
+This file is imported by ``reana_workflow_monitor.__init__`` and parsed by
+``setup.py``.
+"""
+
+from __future__ import absolute_import, print_function
+
+__version__ = "0.0.1.dev20170123"
