@@ -56,3 +56,4 @@ recursive-include server CHANGELOG
 recursive-include server LICENSE
 recursive-include server LICENSE-MIT
 recursive-include server NOTICE
+recursive-include tracker *.py
