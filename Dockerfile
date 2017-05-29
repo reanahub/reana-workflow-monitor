@@ -18,12 +18,11 @@
 # granted to it by virtue of its status as an Intergovernmental Organization or
 # submit itself to any jurisdiction.
 
-FROM cern/cc7-base
-RUN yum install -y gcc gcc-c++ graphviz-devel ImageMagick python-devel libffi-devel openssl openssl-devel unzip nano autoconf automake libtool ; yum clean all
-RUN curl https://bootstrap.pypa.io/get-pip.py | python -
-RUN pip install celery==3.1.17
-RUN pip install https://github.com/diana-hep/packtivity/archive/master.zip
-RUN pip install https://github.com/diana-hep/yadage/archive/master.zip
-RUN pip install zmq python-socketio gevent flask gevent-websocket
+FROM fedora:25
+RUN dnf -y update &&\
+    dnf install -y gcc gcc-c++ graphviz-devel ImageMagick python-devel libffi-devel openssl openssl-devel unzip nano autoconf automake libtool python-pip &&\
+    dnf install -y dnf redhat-rpm-config
 ADD . /code
 WORKDIR /code
+RUN pip install --upgrade pip &&\
+    pip install -e .[all]

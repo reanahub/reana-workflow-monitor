@@ -19,7 +19,6 @@
 # In applying this license, CERN does not waive the privileges and immunities
 # granted to it by virtue of its status as an Intergovernmental Organization or
 # submit itself to any jurisdiction.
-
 """REANA-Workflow-Monitor."""
 
 from __future__ import absolute_import, print_function
@@ -61,8 +60,20 @@ setup_requires = [
     'pytest-runner>=2.7',
 ]
 
-packages = find_packages()
+install_requires = [
+    'adage==0.7.1',
+    'celery==3.1.17',
+    'Flask>=0.12.2',
+    'gevent==1.2.1',
+    'gevent-websocket==0.10.1',
+    'packtivity==0.5.15',
+    'python-socketio==1.7.4',
+    'pyzmq==16.0.2',
+    'yadage==0.10.7',
+    'yadage-schemas==0.6.0',
+]
 
+packages = find_packages()
 
 # Get the version string. Cannot be done with import!
 with open(os.path.join('reana_workflow_monitor', 'version.py'), 'rt') as f:
@@ -81,6 +92,7 @@ setup(
     url='https://github.com/reanahub/reana-workflow-monitor',
     packages=['reana_workflow_monitor', ],
     zip_safe=False,
+    install_requires=install_requires,
     extras_require=extras_require,
     setup_requires=setup_requires,
     tests_require=tests_require,
