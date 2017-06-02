@@ -66,10 +66,10 @@ install_requires = [
     'Flask>=0.12.2',
     'gevent==1.2.1',
     'gevent-websocket==0.10.1',
-    'packtivity==0.5.15',
+    'packtivity==0.5.18',
     'python-socketio==1.7.4',
     'pyzmq==16.0.2',
-    'yadage==0.10.7',
+    'yadage==0.10.8',
     'yadage-schemas==0.6.0',
 ]
 
