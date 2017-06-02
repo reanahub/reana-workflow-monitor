@@ -21,6 +21,7 @@
 # submit itself to any jurisdiction.
 
 import os
+
 import socketio
 import zmq.green as zmq
 from flask import Flask, render_template
