@@ -1,6 +1,11 @@
 Changes
 =======
 
+Version 0.2.0 (2018-04-19)
+--------------------------
+
+- Upgrades Yadage workflow ecosystem versions.
+
 Version 0.1.0 (2018-01-30)
 --------------------------
 
