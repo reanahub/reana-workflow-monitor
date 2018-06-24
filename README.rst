@@ -1,5 +1,5 @@
 ========================
- REANA Workflow Monitor
+ REANA-Workflow-Monitor
 ========================
 
 .. image:: https://img.shields.io/travis/reanahub/reana-workflow-monitor.svg
@@ -23,9 +23,9 @@
 About
 -----
 
-REANA-Workflow-Monitor is a component of the `REANA <http://reanahub.io/>`_
-reusable analysis platform. It enables to monitor running computational
-workflows.
+REANA-Workflow-Monitor is a component of the `REANA <http://www.reana.io/>`_
+reusable and reproducible research data analysis platform. It enables to monitor
+running computational workflows.
 
 Features
 --------
@@ -41,4 +41,5 @@ Useful links
 - `source code <https://github.com/reanahub/reana-workflow-monitor>`_
 
 For more information about the REANA reusable analysis platform, please see the
-general `REANA documentation <http://reana.readthedocs.io/>`_.
+`REANA project <http://www.reana.io>`_ home page and the general `REANA
+documentation <http://reana.readthedocs.io/>`_ pages.
