@@ -56,7 +56,7 @@ install_requires = [
     'python-socketio==1.7.4',
     'pyzmq==16.0.2',
     'yadage==0.13.5',
-    'yadage-schemas==0.7.16',
+    'yadage-schemas==0.7.16'
 ]
 
 packages = find_packages()

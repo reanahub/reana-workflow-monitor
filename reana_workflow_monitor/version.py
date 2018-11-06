@@ -14,4 +14,4 @@ This file is imported by ``reana_workflow_monitor.__init__`` and parsed by
 
 from __future__ import absolute_import, print_function
 
-__version__ = "0.3.0.dev20180503"
+__version__ = "0.4.0"

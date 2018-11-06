@@ -1,6 +1,12 @@
 Changes
 =======
 
+Version 0.4.0 (2018-11-06)
+--------------------------
+
+- Uses standardised REANA component documentation structure.
+- Changes license to MIT.
+
 Version 0.2.0 (2018-04-19)
 --------------------------
 
