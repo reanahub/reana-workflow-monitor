@@ -5,7 +5,7 @@
 .. image:: https://img.shields.io/travis/reanahub/reana-workflow-monitor.svg
          :target: https://travis-ci.org/reanahub/reana-workflow-monitor
 
-.. image:: https://readthedocs.org/projects/docs/badge/?version=latest
+.. image:: https://readthedocs.org/projects/reana-workflow-monitor/badge/?version=latest
          :target: https://reana-workflow-monitor.readthedocs.io/en/latest/?badge=latest
 
 .. image:: https://img.shields.io/coveralls/reanahub/reana-workflow-monitor.svg
