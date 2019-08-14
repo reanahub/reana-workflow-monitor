@@ -47,16 +47,16 @@ setup_requires = [
 ]
 
 install_requires = [
-    'adage==0.8.5',
-    'celery==3.1.17',
+    'adage==0.10.0',
+    'celery==4.3.0',
     'Flask>=0.12.2',
-    'gevent==1.2.1',
+    'gevent==1.4.0',
     'gevent-websocket==0.10.1',
-    'packtivity==0.10.0',
-    'python-socketio==1.7.4',
-    'pyzmq==16.0.2',
-    'yadage==0.13.5',
-    'yadage-schemas==0.7.16'
+    'packtivity==0.14.21',
+    'python-socketio==4.3.1',
+    'pyzmq==18.1.0',
+    'yadage==0.20.0',
+    'yadage-schemas==0.10.6',
 ]
 
 packages = find_packages()
