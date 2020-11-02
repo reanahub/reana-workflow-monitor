@@ -15,58 +15,70 @@ from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 
 ctx = zmq.Context()
-sio = socketio.Server(logger=True, async_mode='gevent')
+sio = socketio.Server(logger=True, async_mode="gevent")
 app = Flask(__name__)
 app.wsgi_app = socketio.Middleware(sio, app.wsgi_app)
-app.config['SECRET_KEY'] = 'secret!'
+app.config["SECRET_KEY"] = "secret!"
 
 
 def background_thread():
     """Example of how to send server generated events to clients."""
     socket = ctx.socket(zmq.SUB)
-    socket.connect(os.environ['ZMQ_PROXY_CONNECT'])
-    socket.setsockopt_string(zmq.SUBSCRIBE, u'')
+    socket.connect(os.environ["ZMQ_PROXY_CONNECT"])
+    socket.setsockopt_string(zmq.SUBSCRIBE, u"")
     while True:
         msg = socket.recv_json()
-        if 'yadage_ctrl' in msg:
-            sio.emit('yadage_ctrl', {'data': msg['yadage_ctrl']},
-                     room=msg['identifier'], namespace='/test')
-        elif 'yadage_obj' in msg:
-            sio.emit('yadage_state', {'data': msg['yadage_obj']},
-                     room=msg['identifier'], namespace='/test')
+        if "yadage_ctrl" in msg:
+            sio.emit(
+                "yadage_ctrl",
+                {"data": msg["yadage_ctrl"]},
+                room=msg["identifier"],
+                namespace="/test",
+            )
+        elif "yadage_obj" in msg:
+            sio.emit(
+                "yadage_state",
+                {"data": msg["yadage_obj"]},
+                room=msg["identifier"],
+                namespace="/test",
+            )
 
 
-@app.route('/<identifier>')
+@app.route("/<identifier>")
 def index(identifier):
-    return render_template('index.html', room=identifier)
+    return render_template("index.html", room=identifier)
 
 
-@sio.on('connect', namespace='/test')
+@sio.on("connect", namespace="/test")
 def connect(sid, environ):
-    print('Client connected')
+    print("Client connected")
 
 
-@sio.on('join', namespace='/test')
+@sio.on("join", namespace="/test")
 def enter(sid, data):
-    print('data', data)
-    print('Adding Client {} to room {}'.format(sid, data['room']))
-    sio.enter_room(sid, data['room'], namespace='/test')
+    print("data", data)
+    print("Adding Client {} to room {}".format(sid, data["room"]))
+    sio.enter_room(sid, data["room"], namespace="/test")
 
 
-@sio.on('roomit', namespace='/test')
+@sio.on("roomit", namespace="/test")
 def roomit(sid, data):
-    print('Emitting to Room: {}'.format(data['room']))
-    sio.emit('join_ack', {'data':
-                          'Welcome to the room {}'.format(data['room'])},
-             room=data['room'], namespace='/test')
+    print("Emitting to Room: {}".format(data["room"]))
+    sio.emit(
+        "join_ack",
+        {"data": "Welcome to the room {}".format(data["room"])},
+        room=data["room"],
+        namespace="/test",
+    )
 
 
-@sio.on('disconnect', namespace='/test')
+@sio.on("disconnect", namespace="/test")
 def disconnect(sid):
-    print('Client disconnected')
+    print("Client disconnected")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sio.start_background_task(background_thread)
-    pywsgi.WSGIServer(('0.0.0.0', 5000), app,
-                      handler_class=WebSocketHandler).serve_forever()
+    pywsgi.WSGIServer(
+        ("0.0.0.0", 5000), app, handler_class=WebSocketHandler
+    ).serve_forever()

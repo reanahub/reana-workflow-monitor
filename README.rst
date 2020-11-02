@@ -2,14 +2,15 @@
  REANA-Workflow-Monitor
 ========================
 
-.. image:: https://img.shields.io/travis/reanahub/reana-workflow-monitor.svg
-         :target: https://travis-ci.org/reanahub/reana-workflow-monitor
+
+.. image:: https://github.com/reanahub/reana-workflow-monitor/workflows/CI/badge.svg
+        :target: https://github.com/reanahub/reana-workflow-monitor/actions
 
 .. image:: https://readthedocs.org/projects/reana-workflow-monitor/badge/?version=latest
          :target: https://reana-workflow-monitor.readthedocs.io/en/latest/?badge=latest
 
-.. image:: https://img.shields.io/coveralls/reanahub/reana-workflow-monitor.svg
-         :target: https://coveralls.io/r/reanahub/reana-workflow-monitor
+.. image:: https://codecov.io/gh/reanahub/reana-workflow-monitor/branch/master/graph/badge.svg
+        :target: https://codecov.io/gh/reanahub/reana-workflow-monitor
 
 .. image:: https://badges.gitter.im/Join%20Chat.svg
          :target: https://gitter.im/reanahub/reana?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
