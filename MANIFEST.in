@@ -10,6 +10,7 @@ include LICENSE
 include *.rst
 include *.sh
 include *.txt
+include .flake8
 include pytest.ini
 recursive-include docs *.py
 recursive-include docs *.png
